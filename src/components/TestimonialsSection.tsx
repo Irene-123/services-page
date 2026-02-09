@@ -1,37 +1,52 @@
-import { Quote, Star } from "lucide-react";
+import { Quote, Star, Award, Trophy, Code } from "lucide-react";
 
-const testimonials = [
+const achievements = [
   {
-    name: "Sarah Chen",
-    role: "CTO, FinTrack",
-    content:
-      "Transformed our legacy system into a modern, scalable platform in just 3 months. The architecture decisions made early on saved us countless hours down the road.",
-    rating: 5,
-    project: "FinTrack Pro Dashboard",
+    icon: Trophy,
+    title: "WorldQuant Bronze Medal",
+    description: "55th global ranker for trading strategy formula development",
+    year: "2023",
   },
   {
-    name: "Marcus Rodriguez",
-    role: "Founder, MediConnect",
-    content:
-      "Not just a developer — a true technical partner. Helped us navigate HIPAA compliance while building an API that our clients love. Exceeded every expectation.",
-    rating: 5,
-    project: "MediConnect API Platform",
+    icon: Code,
+    title: "GATE AIR 3343",
+    description: "Top 3.4% among 100,000+ candidates in Graduate Aptitude Test",
+    year: "2022",
   },
   {
-    name: "Emily Watson",
-    role: "VP Engineering, ShopFlow",
-    content:
-      "The migration to microservices was seamless. Our throughput increased 4x and deployment frequency went from monthly to daily. Incredible work.",
-    rating: 5,
-    project: "ShopFlow Engine",
+    icon: Award,
+    title: "EthIndia Hackathon",
+    description: "Represented university competing against 20+ teams nationally",
+    year: "2022",
   },
   {
-    name: "David Kim",
-    role: "Lead Data Scientist, Nexus AI",
-    content:
-      "Built our entire ML pipeline from scratch. What used to take our team 2 weeks to deploy a model now takes less than a day. Game-changer for our velocity.",
-    rating: 5,
-    project: "DataPipe ML Pipeline",
+    icon: Code,
+    title: "CodeChef Rating 1887",
+    description: "Global ranks of 678 and 245 in competitive programming",
+    year: "2020-22",
+  },
+];
+
+const experience = [
+  {
+    company: "Quantum Corporation",
+    role: "Software Developer",
+    period: "Dec 2024 - Present",
+    highlights: [
+      "Advanced RAG architecture with custom embeddings",
+      "MCP Server & N8N integrations for automated workflows",
+      "Reduced manual code review effort by 40%",
+    ],
+  },
+  {
+    company: "Hewlett Packard Enterprise",
+    role: "Software Engineer",
+    period: "July 2023 - Jan 2025",
+    highlights: [
+      "Improved SLA from 60 to 85 with automated ticketing",
+      "Scaled APIs to handle 500K+ units in 10 minutes",
+      "Cut triage time by 70% with intelligent routing",
+    ],
   },
 ];
 
@@ -39,47 +54,81 @@ const TestimonialsSection = () => {
   return (
     <section id="testimonials" className="py-24 bg-secondary/50">
       <div className="container">
+        {/* Experience Section */}
         <div className="max-w-2xl mb-16">
           <p className="text-primary font-heading font-semibold mb-3 text-sm tracking-widest uppercase">
-            Client Reviews
+            Experience
           </p>
           <h2 className="font-heading text-4xl sm:text-5xl font-bold tracking-tight text-foreground">
-            Trusted by teams
+            Where I've
             <br />
-            that ship fast.
+            made impact.
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
-          {testimonials.map((t, i) => (
+        <div className="grid md:grid-cols-2 gap-6 mb-20">
+          {experience.map((exp) => (
             <div
-              key={t.name}
+              key={exp.company}
               className="relative rounded-xl border border-border bg-card p-8 shadow-card"
             >
-              <Quote className="h-8 w-8 text-primary/20 mb-4" />
+              <div className="flex items-start justify-between mb-4">
+                <div>
+                  <h3 className="font-heading text-xl font-bold text-card-foreground">
+                    {exp.company}
+                  </h3>
+                  <p className="text-primary font-medium">{exp.role}</p>
+                </div>
+                <span className="text-xs font-medium px-2.5 py-1 rounded-md bg-secondary text-secondary-foreground">
+                  {exp.period}
+                </span>
+              </div>
 
-              <p className="text-card-foreground leading-relaxed mb-6">
-                "{t.content}"
-              </p>
-
-              <div className="flex items-center gap-1 mb-4">
-                {Array.from({ length: t.rating }).map((_, j) => (
-                  <Star
+              <ul className="space-y-2">
+                {exp.highlights.map((highlight, j) => (
+                  <li
                     key={j}
-                    className="h-4 w-4 fill-accent text-accent"
-                  />
+                    className="text-muted-foreground text-sm leading-relaxed flex items-start gap-2"
+                  >
+                    <span className="h-1.5 w-1.5 rounded-full bg-primary mt-2 shrink-0" />
+                    {highlight}
+                  </li>
                 ))}
-              </div>
+              </ul>
+            </div>
+          ))}
+        </div>
 
-              <div className="border-t border-border pt-4">
-                <p className="font-heading font-semibold text-card-foreground">
-                  {t.name}
-                </p>
-                <p className="text-sm text-muted-foreground">{t.role}</p>
-                <p className="text-xs text-primary mt-1 font-medium">
-                  Project: {t.project}
-                </p>
+        {/* Achievements Section */}
+        <div className="max-w-2xl mb-16">
+          <p className="text-primary font-heading font-semibold mb-3 text-sm tracking-widest uppercase">
+            Achievements
+          </p>
+          <h2 className="font-heading text-4xl sm:text-5xl font-bold tracking-tight text-foreground">
+            Recognition &
+            <br />
+            milestones.
+          </h2>
+        </div>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {achievements.map((achievement) => (
+            <div
+              key={achievement.title}
+              className="relative rounded-xl border border-border bg-card p-6 shadow-card text-center"
+            >
+              <div className="inline-flex items-center justify-center h-12 w-12 rounded-full bg-primary/10 text-primary mb-4">
+                <achievement.icon className="h-6 w-6" />
               </div>
+              <h3 className="font-heading font-bold text-card-foreground mb-2">
+                {achievement.title}
+              </h3>
+              <p className="text-muted-foreground text-sm mb-2">
+                {achievement.description}
+              </p>
+              <span className="text-xs font-medium text-primary">
+                {achievement.year}
+              </span>
             </div>
           ))}
         </div>
