@@ -1,4 +1,5 @@
-import { Quote, Star, Award, Trophy, Code } from "lucide-react";
+import { Award, Trophy, Code } from "lucide-react";
+import ScrollReveal from "./ScrollReveal";
 
 const achievements = [
   {
@@ -55,81 +56,83 @@ const TestimonialsSection = () => {
     <section id="testimonials" className="py-24 bg-secondary/50">
       <div className="container">
         {/* Experience Section */}
-        <div className="max-w-2xl mb-16">
-          <p className="text-primary font-heading font-semibold mb-3 text-sm tracking-widest uppercase">
-            Experience
-          </p>
-          <h2 className="font-heading text-4xl sm:text-5xl font-bold tracking-tight text-foreground">
-            Where I've
-            <br />
-            made impact.
-          </h2>
-        </div>
+        <ScrollReveal>
+          <div className="max-w-2xl mb-16">
+            <p className="text-primary font-heading font-semibold mb-3 text-sm tracking-widest uppercase">
+              Experience
+            </p>
+            <h2 className="font-heading text-4xl sm:text-5xl font-bold tracking-tight text-foreground">
+              Where I've
+              <br />
+              made impact.
+            </h2>
+          </div>
+        </ScrollReveal>
 
         <div className="grid md:grid-cols-2 gap-6 mb-20">
-          {experience.map((exp) => (
-            <div
-              key={exp.company}
-              className="relative rounded-xl border border-border bg-card p-8 shadow-card"
-            >
-              <div className="flex items-start justify-between mb-4">
-                <div>
-                  <h3 className="font-heading text-xl font-bold text-card-foreground">
-                    {exp.company}
-                  </h3>
-                  <p className="text-primary font-medium">{exp.role}</p>
+          {experience.map((exp, i) => (
+            <ScrollReveal key={exp.company} delay={i * 0.15}>
+              <div className="relative rounded-xl border border-border bg-card p-8 shadow-card h-full">
+                <div className="flex items-start justify-between mb-4">
+                  <div>
+                    <h3 className="font-heading text-xl font-bold text-card-foreground">
+                      {exp.company}
+                    </h3>
+                    <p className="text-primary font-medium">{exp.role}</p>
+                  </div>
+                  <span className="text-xs font-medium px-2.5 py-1 rounded-md bg-secondary text-secondary-foreground">
+                    {exp.period}
+                  </span>
                 </div>
-                <span className="text-xs font-medium px-2.5 py-1 rounded-md bg-secondary text-secondary-foreground">
-                  {exp.period}
-                </span>
-              </div>
 
-              <ul className="space-y-2">
-                {exp.highlights.map((highlight, j) => (
-                  <li
-                    key={j}
-                    className="text-muted-foreground text-sm leading-relaxed flex items-start gap-2"
-                  >
-                    <span className="h-1.5 w-1.5 rounded-full bg-primary mt-2 shrink-0" />
-                    {highlight}
-                  </li>
-                ))}
-              </ul>
-            </div>
+                <ul className="space-y-2">
+                  {exp.highlights.map((highlight, j) => (
+                    <li
+                      key={j}
+                      className="text-muted-foreground text-sm leading-relaxed flex items-start gap-2"
+                    >
+                      <span className="h-1.5 w-1.5 rounded-full bg-primary mt-2 shrink-0" />
+                      {highlight}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </ScrollReveal>
           ))}
         </div>
 
         {/* Achievements Section */}
-        <div className="max-w-2xl mb-16">
-          <p className="text-primary font-heading font-semibold mb-3 text-sm tracking-widest uppercase">
-            Achievements
-          </p>
-          <h2 className="font-heading text-4xl sm:text-5xl font-bold tracking-tight text-foreground">
-            Recognition &
-            <br />
-            milestones.
-          </h2>
-        </div>
+        <ScrollReveal>
+          <div className="max-w-2xl mb-16">
+            <p className="text-primary font-heading font-semibold mb-3 text-sm tracking-widest uppercase">
+              Achievements
+            </p>
+            <h2 className="font-heading text-4xl sm:text-5xl font-bold tracking-tight text-foreground">
+              Recognition &
+              <br />
+              milestones.
+            </h2>
+          </div>
+        </ScrollReveal>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {achievements.map((achievement) => (
-            <div
-              key={achievement.title}
-              className="relative rounded-xl border border-border bg-card p-6 shadow-card text-center"
-            >
-              <div className="inline-flex items-center justify-center h-12 w-12 rounded-full bg-primary/10 text-primary mb-4">
-                <achievement.icon className="h-6 w-6" />
+          {achievements.map((achievement, i) => (
+            <ScrollReveal key={achievement.title} delay={i * 0.1}>
+              <div className="relative rounded-xl border border-border bg-card p-6 shadow-card text-center h-full">
+                <div className="inline-flex items-center justify-center h-12 w-12 rounded-full bg-primary/10 text-primary mb-4">
+                  <achievement.icon className="h-6 w-6" />
+                </div>
+                <h3 className="font-heading font-bold text-card-foreground mb-2">
+                  {achievement.title}
+                </h3>
+                <p className="text-muted-foreground text-sm mb-2">
+                  {achievement.description}
+                </p>
+                <span className="text-xs font-medium text-primary">
+                  {achievement.year}
+                </span>
               </div>
-              <h3 className="font-heading font-bold text-card-foreground mb-2">
-                {achievement.title}
-              </h3>
-              <p className="text-muted-foreground text-sm mb-2">
-                {achievement.description}
-              </p>
-              <span className="text-xs font-medium text-primary">
-                {achievement.year}
-              </span>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>
