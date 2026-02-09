@@ -58,7 +58,7 @@ const BookingSection = () => {
           {/* Calendly Embed */}
           <div className="rounded-xl border border-border bg-card shadow-card overflow-hidden min-h-[650px]">
             <iframe
-              src="https://calendly.com/d/YOUR_LINK"
+              src="https://calendly.com/kirtipurohit050"
               width="100%"
               height="650"
               frameBorder="0"
