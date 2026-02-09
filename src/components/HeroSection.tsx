@@ -22,17 +22,17 @@ const HeroSection = () => {
             className="font-heading text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-primary-foreground opacity-0 animate-fade-up"
             style={{ animationDelay: "0.1s" }}
           >
-            I build software
+            Hi, I'm Kirti
             <br />
-            <span className="text-gradient">that scales.</span>
+            <span className="text-gradient">AI & Backend Engineer</span>
           </h1>
 
           <p
             className="text-lg sm:text-xl text-primary-foreground/70 max-w-xl leading-relaxed opacity-0 animate-fade-up"
             style={{ animationDelay: "0.25s" }}
           >
-            Full-stack engineer & consultant helping startups and enterprises
-            ship exceptional products. From architecture to deployment.
+            Software Engineer specializing in AI-driven systems, RAG architectures, 
+            and scalable backend services. 3+ years building production systems at HPE and Quantum.
           </p>
 
           <div
@@ -69,7 +69,7 @@ const HeroSection = () => {
             style={{ animationDelay: "0.55s" }}
           >
             <a
-              href="https://github.com"
+              href="https://github.com/Irene-123"
               target="_blank"
               rel="noopener noreferrer"
               className="text-primary-foreground/50 hover:text-primary transition-colors"
@@ -77,7 +77,7 @@ const HeroSection = () => {
               <Github className="h-5 w-5" />
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/kirtidineshpurohit/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-primary-foreground/50 hover:text-primary transition-colors"
@@ -85,7 +85,7 @@ const HeroSection = () => {
               <Linkedin className="h-5 w-5" />
             </a>
             <a
-              href="mailto:hello@example.com"
+              href="mailto:kirtipurohit050@gmail.com"
               className="text-primary-foreground/50 hover:text-primary transition-colors"
             >
               <Mail className="h-5 w-5" />

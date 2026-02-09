@@ -1,41 +1,50 @@
-import { ExternalLink, Github, Star } from "lucide-react";
+import { ExternalLink, Github } from "lucide-react";
 
 const projects = [
   {
-    title: "FinTrack Pro",
+    title: "AI-Powered Code Review System",
     description:
-      "Real-time financial analytics dashboard for a Series B fintech startup. Built with React, Node.js, and PostgreSQL handling 2M+ daily transactions.",
-    tags: ["React", "Node.js", "PostgreSQL", "AWS"],
-    stars: 128,
-    link: "#",
-    github: "#",
+      "Built an AI-powered PR review system using RAG + DeepSeek LLM, automating repository indexing and commit analysis. Reduced manual review effort by 40%.",
+    tags: ["Python", "LangChain", "Milvus", "RAG"],
+    link: "https://www.linkedin.com/in/kirtidineshpurohit/",
+    github: "https://github.com/Irene-123",
+    company: "Quantum Corporation",
   },
   {
-    title: "MediConnect API",
+    title: "Code RAG Pipeline",
     description:
-      "HIPAA-compliant healthcare API platform enabling seamless EHR integrations. Serving 50+ clinics with 99.99% uptime.",
-    tags: ["TypeScript", "Express", "MongoDB", "Docker"],
-    stars: 89,
-    link: "#",
-    github: "#",
+      "Implemented advanced RAG architecture with custom fine-tuned embeddings using sentence transformers for Git Repo Vector Indexing System. Correlates git revision history with code changes.",
+    tags: ["Sentence Transformers", "VectorDB", "Git", "Python"],
+    link: "https://www.linkedin.com/in/kirtidineshpurohit/",
+    github: "https://github.com/Irene-123",
+    company: "Quantum Corporation",
   },
   {
-    title: "ShopFlow Engine",
+    title: "Incident Ticketing System",
     description:
-      "Headless e-commerce engine powering $12M+ annual GMV. Microservices architecture with real-time inventory sync.",
-    tags: ["Go", "gRPC", "Redis", "Kubernetes"],
-    stars: 215,
-    link: "#",
-    github: "#",
+      "Automated incident ticketing tool that improved SLA from 60 to 85. Optimized APIs with DynamoDB, achieving scalability to handle 500,000+ units in 10 minutes.",
+    tags: ["DynamoDB", "Kafka", "Python", "AWS"],
+    link: "https://www.linkedin.com/in/kirtidineshpurohit/",
+    github: "https://github.com/Irene-123",
+    company: "HPE",
   },
   {
-    title: "DataPipe ML",
+    title: "My MCP Server: Talk to Your PC",
     description:
-      "End-to-end ML pipeline orchestrator reducing model deployment time by 70%. Used by 3 enterprise clients.",
-    tags: ["Python", "FastAPI", "TensorFlow", "Airflow"],
-    stars: 342,
-    link: "#",
-    github: "#",
+      "Conversational agent using LangChain, Azure AI, and speech recognition. Responds to user input about PC settings, diagnoses errors, and executes commands.",
+    tags: ["Python", "LangChain", "Azure AI", "MCP"],
+    link: "https://medium.com/@kirtipurohit025",
+    github: "https://github.com/Irene-123",
+    company: "Open Source",
+  },
+  {
+    title: "ChatGPT Desktop Integration",
+    description:
+      "Contributed to the open-source ChatGPT desktop application. Integrated Dall-E2 model for image generation within ChatGPT wrapper.",
+    tags: ["Rust", "Tauri", "OpenAI", "System Integration"],
+    link: "https://medium.com/@kirtipurohit025",
+    github: "https://github.com/Irene-123",
+    company: "Open Source",
   },
 ];
 
@@ -96,10 +105,9 @@ const ProjectsSection = () => {
                     </span>
                   ))}
                 </div>
-                <div className="flex items-center gap-1 text-muted-foreground text-sm">
-                  <Star className="h-3.5 w-3.5 fill-accent text-accent" />
-                  {project.stars}
-                </div>
+                <span className="text-xs font-medium px-2.5 py-1 rounded-md bg-primary/10 text-primary">
+                  {project.company}
+                </span>
               </div>
             </div>
           ))}

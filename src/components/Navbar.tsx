@@ -23,7 +23,7 @@ const Navbar = () => {
           href="#"
           className="font-heading font-bold text-xl text-primary-foreground tracking-tight"
         >
-          dev<span className="text-primary">.</span>studio
+          Kirti<span className="text-primary">.</span>dev
         </a>
 
         {/* Desktop */}
