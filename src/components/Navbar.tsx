@@ -3,9 +3,10 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const navLinks = [
+  { label: "Services", href: "#services" },
   { label: "Work", href: "#projects" },
-  { label: "Reviews", href: "#testimonials" },
-  { label: "Contact", href: "#booking" },
+  { label: "Reviews", href: "#reviews" },
+  { label: "FAQ", href: "#faq" },
 ];
 
 const Navbar = () => {

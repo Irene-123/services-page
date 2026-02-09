@@ -22,17 +22,17 @@ const HeroSection = () => {
             className="font-heading text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-primary-foreground opacity-0 animate-fade-up"
             style={{ animationDelay: "0.1s" }}
           >
-            Hi, I'm Kirti
+            Build Smarter.
             <br />
-            <span className="text-gradient">AI & Backend Engineer</span>
+            <span className="text-gradient">Ship Faster.</span>
           </h1>
 
           <p
             className="text-lg sm:text-xl text-primary-foreground/70 max-w-xl leading-relaxed opacity-0 animate-fade-up"
             style={{ animationDelay: "0.25s" }}
           >
-            Software Engineer specializing in AI-driven systems, RAG architectures, 
-            and scalable backend services. 3+ years building production systems at HPE and Quantum.
+            AI systems, backend engineering, full-stack apps, and consulting—all 
+            under one roof. Transparent pricing, real results.
           </p>
 
           <div
@@ -56,11 +56,11 @@ const HeroSection = () => {
               className="border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10 font-heading"
               onClick={() =>
                 document
-                  .getElementById("projects")
+                  .getElementById("services")
                   ?.scrollIntoView({ behavior: "smooth" })
               }
             >
-              View Work
+              Browse Services
             </Button>
           </div>
 
