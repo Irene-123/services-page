@@ -147,7 +147,7 @@ const HeroSection = () => {
             style={{ animationDelay: "0.3s" }}
           >
             <motion.div
-              className="relative w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96"
+              className="relative w-80 h-80 sm:w-[22rem] sm:h-[22rem] lg:w-[28rem] lg:h-[28rem]"
               whileHover={{ scale: 1.05, rotate: 2 }}
               transition={{ type: "spring", stiffness: 200, damping: 15 }}
             >
