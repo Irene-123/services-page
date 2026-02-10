@@ -1,11 +1,31 @@
 import heroBg from "@/assets/hero-bg.jpg";
 import kirtiImg from "@/assets/kirti-profile.jpg";
+import catMeme1 from "@/assets/cat-meme-1.jpg";
+import catMeme2 from "@/assets/cat-meme-2.jpg";
+import catMeme3 from "@/assets/cat-meme-3.jpg";
 import { ArrowRight, Github, Linkedin, Mail, Terminal, Cpu, Code2, Braces } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
 
 const techTags = ["Python", "React", "LangChain", "FastAPI", "AWS", "RAG", "Node.js", "ML"];
 
+const catMemes = [
+  { src: catMeme1, caption: "Me pretending I wrote the code" },
+  { src: catMeme2, caption: "When the bug is in production" },
+  { src: catMeme3, caption: "Deploying on Friday be like" },
+];
+
 const HeroSection = () => {
+  const [currentMeme, setCurrentMeme] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentMeme((prev) => (prev + 1) % catMemes.length);
+    }, 3500);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="relative min-h-[90vh] flex items-center overflow-hidden">
       {/* Background */}
@@ -40,8 +60,8 @@ const HeroSection = () => {
               </p>
 
               <h1
-                className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-primary-foreground opacity-0 animate-fade-up leading-[1.1]"
-                style={{ animationDelay: "0.1s" }}
+                className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight opacity-0 animate-fade-up leading-[1.1]"
+                style={{ animationDelay: "0.1s", color: "hsl(0 0% 98%)" }}
               >
                 I use AI to build AI.
                 <br />
@@ -59,8 +79,8 @@ const HeroSection = () => {
             </div>
 
             <p
-              className="text-base sm:text-lg text-primary-foreground/70 max-w-xl leading-relaxed opacity-0 animate-fade-up"
-              style={{ animationDelay: "0.25s" }}
+              className="text-base sm:text-lg max-w-xl leading-relaxed opacity-0 animate-fade-up"
+              style={{ animationDelay: "0.25s", color: "hsl(0 0% 85%)" }}
             >
               Software engineer who builds AI/ML systems, full-stack apps, and 
               everything in between. From storage firmware to LangChain agents—if 
@@ -140,27 +160,88 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Right - Profile photo */}
+          {/* Right - Profile photo + Cat memes */}
           <div
             className="relative opacity-0 animate-fade-up flex-shrink-0"
             style={{ animationDelay: "0.3s" }}
           >
-            <div className="relative w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80">
-              {/* Glow ring */}
-              <div className="absolute -inset-1 rounded-full bg-gradient-to-br from-primary/40 via-primary/10 to-transparent blur-md" />
+            {/* Profile photo with animated border */}
+            <motion.div
+              className="relative w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80"
+              whileHover={{ scale: 1.05, rotate: 2 }}
+              transition={{ type: "spring", stiffness: 200, damping: 15 }}
+            >
+              {/* Animated spinning glow ring */}
+              <motion.div
+                className="absolute -inset-2 rounded-full"
+                style={{
+                  background: "conic-gradient(from 0deg, hsl(160 84% 39%), hsl(36 100% 50%), hsl(160 84% 39%), transparent)",
+                }}
+                animate={{ rotate: 360 }}
+                transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+              />
+              <div className="absolute -inset-2 rounded-full bg-foreground/60 backdrop-blur-sm" />
+              <motion.div
+                className="absolute -inset-1 rounded-full bg-gradient-to-br from-primary/40 via-primary/10 to-transparent blur-md"
+                animate={{ opacity: [0.5, 1, 0.5] }}
+                transition={{ duration: 2, repeat: Infinity }}
+              />
               <img
                 src={kirtiImg}
                 alt="Kirti - Software Engineer"
-                className="relative w-full h-full rounded-full object-cover object-top border-2 border-primary/30"
+                className="relative w-full h-full rounded-full object-cover object-top border-2 border-primary/30 z-10"
               />
               {/* Terminal badge */}
-              <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-card border border-border rounded-full px-4 py-1.5 flex items-center gap-2 shadow-card">
+              <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-card border border-border rounded-full px-4 py-1.5 flex items-center gap-2 shadow-card z-20">
                 <Terminal className="h-3.5 w-3.5 text-primary" />
                 <span className="text-xs font-mono text-card-foreground whitespace-nowrap">
                   kirti.dev
                 </span>
               </div>
-            </div>
+            </motion.div>
+
+            {/* Cat meme carousel */}
+            <motion.div
+              className="mt-8 w-64 sm:w-72 lg:w-80 mx-auto"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8 }}
+            >
+              <div className="relative rounded-xl overflow-hidden border border-primary/20 bg-card/80 backdrop-blur-sm shadow-card">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={currentMeme}
+                    initial={{ opacity: 0, x: 40 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -40 }}
+                    transition={{ duration: 0.4 }}
+                  >
+                    <img
+                      src={catMemes[currentMeme].src}
+                      alt={catMemes[currentMeme].caption}
+                      className="w-full aspect-square object-cover"
+                    />
+                    <div className="px-3 py-2 text-center">
+                      <p className="text-xs font-mono text-muted-foreground">
+                        🐱 {catMemes[currentMeme].caption}
+                      </p>
+                    </div>
+                  </motion.div>
+                </AnimatePresence>
+                {/* Meme dots */}
+                <div className="flex justify-center gap-1.5 pb-2">
+                  {catMemes.map((_, i) => (
+                    <button
+                      key={i}
+                      onClick={() => setCurrentMeme(i)}
+                      className={`h-1.5 rounded-full transition-all ${
+                        i === currentMeme ? "w-4 bg-primary" : "w-1.5 bg-muted-foreground/30"
+                      }`}
+                    />
+                  ))}
+                </div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </div>
